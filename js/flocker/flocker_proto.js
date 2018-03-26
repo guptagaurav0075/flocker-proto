@@ -39,7 +39,6 @@
 //#region GLOBAL_CONSTANTS
 
 /** @type {number} */
-
 /*
 @Sid_Mishraw Implementation
 
@@ -78,7 +77,11 @@ const COHESION_WEIGHT = 2.0;
 */
 //#endregion GLOBAL_CONSTANTS
 
-
+/**
+ * @GauravGupta Implementation
+ * @type {number}
+ * changed the type from const to variable
+ */
 
 var MAX_WRAP_AROUND_WIDTH = 816; //640;
 
@@ -113,10 +116,8 @@ var ALIGNMENT_WEIGHT = 2.0;
 var COHESION_WEIGHT = 2.0;
 
 
-
-
-
 //#region P5JS_STUFF
+
 /**
  * Sets up the simulation.
  *
@@ -150,10 +151,10 @@ function setup() {
   rectMode(CENTER); // sets x,y co-ordinates for the retangle to be its CENTER
   imageMode(CENTER); // sets x,y co-ordinates for the image to be its CENTER
 
-  // start out with 100 Swallows for the simulation
-  for (let x = 0; x < 30; x++) {
-    flocker.addSwallow(random(MAX_WRAP_AROUND_WIDTH), random(MAX_WRAP_AROUND_HEIGHT));
-  }
+    // start out with 100 Swallows for the simulation
+    for (let x = 0; x < 30; x++) {
+        flocker.addSwallow(random(MAX_WRAP_AROUND_WIDTH), random(MAX_WRAP_AROUND_HEIGHT));
+    }
 }
 /**
  * Draw loop.
