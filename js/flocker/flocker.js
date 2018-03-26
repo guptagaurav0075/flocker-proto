@@ -39,46 +39,92 @@
 //#region GLOBAL_CONSTANTS
 
 /** @type {number} */
+
+/*
+@Sid_Mishraw Implementation
+
 const MAX_WRAP_AROUND_WIDTH = 816; //640;
 
-/** @type {number} */
+/!** @type {number} *!/
 const MAX_WRAP_AROUND_HEIGHT = 480; //360;
 
-/** @type {number} */
+/!** @type {number} *!/
 const MAX_VELOCITY = 2.0;
 
-/** @type {number} */
+/!** @type {number} *!/
 const MAX_ACCELERATION = 0.03;
 
-/** @type {Flocker} */
+/!** @type {Flocker} *!/
 const flocker = new Flocker();
 
-/** @type {number} */
+/!** @type {number} *!/
 const DESIRED_SEPARATION = 50.0;
 
-/** @type {number} */
+/!** @type {number} *!/
 const DESIRED_ALIGNMENT = 50.0;
 
-/** @type {number} */
+/!** @type {number} *!/
 const DESIRED_COHESION = 50.0;
 
-/** @type {number} */
+/!** @type {number} *!/
 const SEPRATION_WEIGHT = 3.5;
 
-/** @type {number} */
+/!** @type {number} *!/
 const ALIGNMENT_WEIGHT = 2.0;
 
-/** @type {number} */
+/!** @type {number} *!/
 const COHESION_WEIGHT = 2.0;
+
+*/
 //#endregion GLOBAL_CONSTANTS
+
+
+
+var MAX_WRAP_AROUND_WIDTH = 816; //640;
+
+// /!** @type {number} *!/
+var MAX_WRAP_AROUND_HEIGHT = 480; //360;
+
+// /!** @type {number} *!/
+var MAX_VELOCITY = 2.0;
+
+// /!** @type {number} *!/
+var MAX_ACCELERATION = 0.03;
+
+// /!** @type {Flocker} *!/
+const flocker = new Flocker();
+
+// /!** @type {number} *!/
+var DESIRED_SEPARATION = 50.0;
+
+// /!** @type {number} *!/
+var DESIRED_ALIGNMENT = 50.0;
+
+// /!** @type {number} *!/
+var DESIRED_COHESION = 50.0;
+
+// /!** @type {number} *!/
+var SEPRATION_WEIGHT = 3.5;
+
+// /!** @type {number} *!/
+var ALIGNMENT_WEIGHT = 2.0;
+
+// /!** @type {number} *!/
+var COHESION_WEIGHT = 2.0;
+
+
+
+
 
 //#region P5JS_STUFF
 /**
  * Sets up the simulation.
- */
-function setup() {
-  createCanvas(MAX_WRAP_AROUND_WIDTH, MAX_WRAP_AROUND_HEIGHT);
+ *
+ * @SidMishraw Implementation
 
+ function setup() {
+  var canvas = createCanvas(MAX_WRAP_AROUND_WIDTH, MAX_WRAP_AROUND_HEIGHT);
+  canvas.parent("content")
   angleMode(DEGREES); // sets the angle mode to degrees
   rectMode(CENTER); // sets x,y co-ordinates for the retangle to be its CENTER
   imageMode(CENTER); // sets x,y co-ordinates for the image to be its CENTER
@@ -88,7 +134,27 @@ function setup() {
     flocker.addSwallow(random(MAX_WRAP_AROUND_WIDTH), random(MAX_WRAP_AROUND_HEIGHT));
   }
 }
+ *
+ */
+/**
+ *
+ *  @Gaurav Gupta implementation
+ *
+ *  Added div parent tag to the canvas
+ *
+ */
+function setup() {
+  let canvas = createCanvas(MAX_WRAP_AROUND_WIDTH, MAX_WRAP_AROUND_HEIGHT);
+  canvas.parent("content");
+  angleMode(DEGREES); // sets the angle mode to degrees
+  rectMode(CENTER); // sets x,y co-ordinates for the retangle to be its CENTER
+  imageMode(CENTER); // sets x,y co-ordinates for the image to be its CENTER
 
+  // start out with 100 Swallows for the simulation
+  for (let x = 0; x < 30; x++) {
+    flocker.addSwallow(random(MAX_WRAP_AROUND_WIDTH), random(MAX_WRAP_AROUND_HEIGHT));
+  }
+}
 /**
  * Draw loop.
  */
@@ -418,9 +484,9 @@ Swallow.prototype.render = function() {
   image(this.image, 0, 0);
 
   pop(); // pop the current matrix from the stack, replacing it to the backed up matrix
-
+/*
   console.log(
     `current rotation = ${this.transformMatrix.getRotation()}, velocity dir = ${this.velocity.heading()}`
-  );
+  );*/
 };
 //#endregion Swallow
